@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     function fetchFolderContents(folderPath) {
-        return fetch(`https://github.com/Grisharik/dltakiwn/tree/master/takiwn/`)
+        return fetch(`https://api.github.com/repos/grisharik/dltakiwn`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch folder contents');
