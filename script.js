@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const repositoryName = 'grisharik/dltakiwn'; // Имя пользователя/организации и имя репозитория
     const folderPath = 'takiwn'; // Путь к папке с файлами
 
-    fetchFolderContents(folderPath)
+    fetchFolderContents(repositoryName, folderPath)
         .then(files => {
             displayFiles(files);
         })
@@ -9,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching folder contents:', error);
         });
 
-    function fetchFolderContents(folderPath) {
-        return fetch(`https://api.github.com/repos/grisharik/dltakiwn`)
+    function fetchFolderContents(repository, folderPath) {
+        return fetch(`https://api.github.com/repos/${repository}/contents/${folderPath}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch folder contents');
